@@ -1,0 +1,17 @@
+{% if fields.faq %}
+  <section class="c-block c-block--faq">
+    <div class="o-wrapper o-wrapper--narrow">
+      <noscript>
+        .c-faq__item-content {
+          display: block;
+        }
+      </noscript>
+      {% for item in fields.faq %}
+        <div class="o-radius c-faq__item">
+          <button type="button" class="js-slide-toggle c-faq__item-toggle">{{ item.title }}<i class="icon-chevron-down"></i></button>
+          <div class="c-faq__item-content">{{ item.content }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

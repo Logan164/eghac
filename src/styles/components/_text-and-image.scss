@@ -1,0 +1,41 @@
+.c-block--text-and-image {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @include bp(medium) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.c-text-and-image__row {
+  @include bp(large) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.c-text-and-image__content {
+  max-width: 445px;
+  margin: 0 auto 30px;
+  text-align: center;
+
+  @include bp(large) {
+    margin: 0;
+    padding-right: 15px;
+    text-align: left;
+  }
+
+  h3 {
+    line-height: 1.2;
+  }
+}
+
+.c-text-and-image__image {
+  text-align: center;
+
+  @include bp(large) {
+    text-align: right;
+  }
+}

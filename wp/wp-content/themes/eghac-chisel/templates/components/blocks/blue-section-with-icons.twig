@@ -1,0 +1,26 @@
+{% if fields.blue_section_icons_content or fields.blue_section_icons_icons %}
+  <section class="c-block--blue-section-icons">
+    <div class="o-wrapper">
+      <div class="animate fade-in o-layout o-layout--guttered c-blue-section-icons__bg">
+        {% if fields.blue_section_icons_content %}
+          <div class="animate fade-in move-up c-blue-section-icons__content">
+            <div class="c-blue-section-icons__content-inner">{{ fields.blue_section_icons_content }}</div>
+          </div>
+        {% endif %}
+        {% if fields.blue_section_icons_icons %}
+          <div class="c-blue-section-icons__icons{{ fields.blue_section_large_icons_text ? ' large' : '' }}">
+            {% for icon in fields.blue_section_icons_icons %}
+              <div class="animate fade-in move-up c-blue-section-icons__icon">
+                {% if icon.icon %}
+                  <div class="c-blue-section-icons__icon-icon">{{ fn( 'wp_get_attachment_image', icon.icon, 'full' ) }}</div>
+                {% endif %}
+                <p class="title">{{ icon.title }}</p>
+                <div class="desc">{{ icon.content }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

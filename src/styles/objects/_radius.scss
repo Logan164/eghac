@@ -1,0 +1,10 @@
+.o-radius {
+  display: block;
+  border-radius: $global-radius;
+  transition: $global-transition;
+  overflow: hidden;
+}
+
+.o-radius--large {
+  border-radius: $global-radius * 2;
+}

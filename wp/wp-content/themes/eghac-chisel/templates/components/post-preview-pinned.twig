@@ -1,0 +1,20 @@
+{% set single = TimberPost(single) %}
+<div class="c-post-preview__wrapper c-post__cat--{{ single.category|lower }} c-post-preview__pinned">
+  <div class="c-post-preview">
+    <a href="{{ single.link }}" class="c-post-preview__thumb-wrapper c-post-preview__pinned-wrapper" style="background-image: url({{ single.thumbnail.src('pinned-thumbnail') }});">
+      <span class="o-radius c-post-preview__thumb">{{ fn( 'get_the_post_thumbnail', single.ID, 'pinned-thumbnail' ) }}</span>
+      <span class="c-post-preview__cat">{{ single.category.name }}</span>
+    </a>
+    <div class="c-post-preview__thumb-content">
+      {% set date = single_news.date|date('M j, Y') %}
+      {% if single_news.meta('event_date') %}
+        {% set date = single_news.meta('event_date')|date('M j, Y') %}
+      {% endif %}
+      <p class="c-post-preview__date">{{ date }}</p>
+      <a href="{{ single.link }}" class="js-ellipsis c-post-preview__title">{{ single.title }}</a>
+      <a href="{{ single.link }}" class="c-post-preview__preview">
+        {{ single.preview.length(21).read_more('') }}
+      </a>
+    </div>
+  </div>
+</div>

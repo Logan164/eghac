@@ -1,0 +1,5 @@
+.u-fs--small {
+  @include bp(medium) {
+    font-size: 0.835em;
+  }
+}

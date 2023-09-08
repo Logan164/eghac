@@ -1,0 +1,45 @@
+{% if fields.page_hero_title or fields.page_hero_subtitle %}
+  <section class="c-block--page-hero">
+    <div class="c-page-hero__top">  
+      {% if fields.page_hero_image %}
+        <div class="animate fade-in c-page-hero__top-img">{{ fn( 'wp_get_attachment_image', fields.page_hero_image, 'page-image' ) }}</div>
+      {% endif %}
+
+      <div class="c-page-hero__top-content">
+        <div class="o-wrapper">
+          <h1 class="animate fade-in move-up">{{ fields.page_hero_title ?: TimberPost(post).title }}</h1>
+          {% if fields.page_hero_subtitle %}
+            <div class="animate fade-in move-up c-page-hero__top-text">{{ fields.page_hero_subtitle }}</div>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="c-hero__slider-wave"></div>
+    </div>
+    
+    {% if fields.page_hero_lower_content or fields.page_hero_lower_right_blue_section %}
+      <div class="o-wrapper{% if fields.page_hero_lower_right_blue_section %} c-page-hero__bottom-flex{% endif %}">
+        {% if fields.page_hero_lower_content %}
+          <div class="animate fade-in move-up c-page-hero__bottom{{ fields.page_hero_lower_right_blue_section ? '' : ' center' }}">{{ replaceLinkarrow(fields.page_hero_lower_content, fields.page_hero_lower_content_links_regular) }}</div>
+        {% endif %}
+
+        {% if fields.page_hero_lower_right_blue_section %}
+          <div class="animate fade-in o-radius c-page-hero__right-blue">
+            {% for field in fields.page_hero_lower_right_blue_section %}
+              <div class="animate fade-in move-up c-page-hero__right-blue-item">
+                <p class="title">{{ field.title }}</p>
+                <div class="content">{{ field.content }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if fields.page_hero_lower_right_content %}
+      <div class="o-wrapper">
+        <div class="animate fade-in move-up c-page-hero__right-content">{{ fields.page_hero_lower_right_content }}</div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

@@ -1,0 +1,86 @@
+<footer class="c-footer">
+  <div class="o-wrapper">
+    <div class="o-layout--guttered c-footer__top">
+      {% if footer_nav_1 %}
+        <div class="animate fade-in move-up o-layout__item c-footer-nav-col">
+          <ul class="c-footer-nav">
+            {% for item in footer_nav_1.items %}
+              <li class="{{item.classes | join(' ')}} c-footer-nav__item">
+                <a href="{{item.link}}" class="c-footer-nav__link">{{ item.title }}</a>
+                {% if item.children %}
+                  {% for subitem in item.children %}
+                    <a href="{{subitem.link}}" class="c-footer-nav__sublink">{{subitem.title}}</a>
+                  {% endfor %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% if footer_nav_2 %}
+        <div class="animate fade-in move-up o-layout__item c-footer-nav-col">
+          <ul class="c-footer-nav c-footer-nav__2">
+            {% for item in footer_nav_2.items %}
+              <li class="{{item.classes | join(' ')}} c-footer-nav__item">
+                <a href="{{item.link}}" class="c-footer-nav__link">{{ item.title }}</a>
+                {% if item.children %}
+                  {% for subitem in item.children %}
+                    <a href="{{subitem.link}}" class="c-footer-nav__sublink">{{subitem.title}}</a>
+                  {% endfor %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% if footer_nav_3 %}
+        <div class="animate fade-in move-up o-layout__item c-footer-nav-col">
+          <ul class="c-footer-nav c-footer-nav__3">
+            {% for item in footer_nav_3.items %}
+              <li class="{{item.classes | join(' ')}} c-footer-nav__item">
+                <a href="{{item.link}}" class="c-footer-nav__link">{{ item.title }}</a>
+                {% if item.children %}
+                  {% for subitem in item.children %}
+                    <a href="{{subitem.link}}" class="c-footer-nav__sublink">{{subitem.title}}</a>
+                  {% endfor %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {% if options.footer_follow_us_title or options.footer_social_items %}
+        <div class="animate fade-in move-up o-layout__item c-footer__social-wrapper">
+          <div class="c-footer__social">
+            <p><strong>{{ options.footer_follow_us_title }}</strong></p>
+            <div class="c-footer__socials">
+              {% for social in options.footer_social_items %}
+                <a href="{{ social.link.url }}" target="{{ social.link.target }}" class="c-footer__social-link {{ social.portal }}">
+                  <i class="icon-{{ social.portal }}"></i>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if options.footer_newsletter %}
+        <div class="animate fade-in move-up o-layout__item c-footer__newsletter">
+          {{ options.footer_newsletter }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="o-wrapper">
+    <div class="o-layout o-layout--guttered o-layout--center c-footer__bottom">
+      <div class="animate fade-in c-footer__bottom-item">
+        <a href="/" rel="home" class="c-footer__logo">
+          <img src="{{ assetPath('images/innoenergy.svg') }}" width="132" height="40" alt="InnoEnergy logo">
+        </a>
+      </div>
+      <p class="animate fade-in o-layout__item u-text-center">&copy; {{"now"|date('Y')}} {{ options.footer_bottom_text }}</p>
+      <div class="animate fade-in c-footer__bottom-item flag">
+        <img src="{{ assetPath('images/eu-flag-white-text.svg') }}" width="126" height="39" alt="EU logo">
+      </div>
+    </div>
+  </div>
+</footer>

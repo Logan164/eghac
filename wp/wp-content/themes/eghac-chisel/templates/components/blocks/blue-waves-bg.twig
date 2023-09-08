@@ -1,0 +1,19 @@
+<section class="c-block c-block--newsletter">
+  <div class="o-wrapper">
+    <div class="animate fade-in o-radius c-newsletter__content {{ fields.newsletter_variant }}">
+      {% if fields.newsletter_title %}
+        <h2 class="animate fade-in move-up c-newsletter__title">{{ fields.newsletter_title }}</h2>
+      {% endif %}
+      {% if fields.newsletter_text %}
+        <div class="animate fade-in move-up c-newsletter__text">{{ fields.newsletter_text }}</div>
+      {% endif %}
+      {% if fields.newsletter_form %}
+        <div class="animate fade-in move-up c-newsletter__form">
+          {% filter shortcodes %}
+            {{ fields.newsletter_form }}
+          {% endfilter %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

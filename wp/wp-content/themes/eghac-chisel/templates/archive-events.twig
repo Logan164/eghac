@@ -1,0 +1,42 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  <div class="o-wrapper o-wrapper--narrow o-main__content no-title">
+    {# {% if pinned %}
+      {% include 'components/post-preview-pinned.twig' with {'single': pinned} %}
+    {% endif %} #}
+    <div class="c-ne__filters">
+      <div class="c-ne__filters-left">
+        <a href="/news-events" class="c-btn c-btn--narrow {{ posts_page == page.ID ? 'c-btn--reverse' : 'c-btn--outline' }}">Show all</a>
+        <a href="/category/news" class="c-btn c-btn--narrow {{ page.slug == 'news' ? 'c-btn--reverse' : 'c-btn--outline' }}">News</a>
+        <a href="/category/events" class="c-btn c-btn--narrow {{ page.slug == 'events' ? 'c-btn--reverse' : 'c-btn--outline' }}">Events</a>
+      </div>
+    </div>
+    <div class="c-events__content">
+      <h3>Upcoming events</h3>
+      {% if upcoming_posts|length %}
+        <section class="c-ne__list">
+          {% for post in upcoming_posts %}
+            {% include ['components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': loop.index} %}
+          {% endfor %}
+        </section>
+      {% else %}
+        <p>There are no upcoming events.</p>
+      {% endif %}
+      {# {% include 'components/pagination.twig' with {pagiPosts: upcoming_posts, customPagination: custom_pagination_upcoming} %} #}
+    </div>
+    <div class="c-events__content">
+      <h3>Past events</h3>
+      {% if past_posts|length %}
+        <section class="c-ne__list">
+          {% for post in past_posts %}
+            {% include ['components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': loop.index} %}
+          {% endfor %}
+        </section>
+      {% else %}
+        <p>There are no past events.</p>
+      {% endif %}
+      {# {% include 'components/pagination.twig' with {pagiPosts: past_posts, customPagination: custom_pagination_past} %} #}
+    </div>
+  </div>
+{% endblock %}

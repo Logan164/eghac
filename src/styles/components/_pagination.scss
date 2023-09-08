@@ -1,0 +1,42 @@
+.c-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 30px;
+
+  @include bp(medium) {
+    margin-bottom: 88px
+  }
+}
+
+.c-pagination__pages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+    padding: 4px;
+  }
+}
+
+.c-pagination__side {
+  display: none;
+}
+
+.c-pagination__pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-pagination__item {
+  display: block;
+
+  &.dots {
+    background-color: transparent;
+    color: $color-blue-dark;
+    cursor: default;
+  }
+}

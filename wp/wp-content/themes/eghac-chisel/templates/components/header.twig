@@ -1,0 +1,14 @@
+<header class="c-header">
+  <div class="o-wrapper u-fs--small c-header__content">
+    {% set logo_src = assetPath('images/innoenergy-color.svg') %}
+    {% set breakthrough = assetPath('images/breakthrough-logo.svg') %}
+    <a href="/" rel="home" class="c-header__logo">
+      <img src="{{ logo_src }}" width="131" height="40" alt="InnoEnergy logo">
+    </a>
+    <img src="{{ assetPath('images/eu-flag.svg') }}" width="126" height="39" alt="EU logo" class="c-header__logo c-header__logo--additional">
+    {% include 'components/main-nav.twig' %}
+    <a href="https://www.breakthroughenergy.org" class="c-header__logo-right">
+      <img src="{{ breakthrough }}" width="128" height="24" alt="Breakthrough energy logo">
+    </a>
+  </div>
+</header>

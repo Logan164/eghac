@@ -1,0 +1,23 @@
+.c-related {
+  margin-bottom: -10px;
+  padding-top: 40px;
+  padding-bottom: 28px;
+  background-color: $color-blue-extra-light-variant;
+
+  @include bp(medium) {
+    margin-bottom: -40px;
+    padding-top: 80px;
+    padding-bottom: 68px;
+  }
+}
+
+.c-related__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+
+  .c-post-preview__wrapper {
+    padding: 12px;
+  }
+}

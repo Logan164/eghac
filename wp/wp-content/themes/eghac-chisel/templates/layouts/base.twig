@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="{{site.charset}}" />
+  <link rel="stylesheet" property="stylesheet" href="{{ revisionedPath('styles/main.css') }}" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 ">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4dfccab0-12e5-4f36-a071-7bbd752454af" data-blockingmode="auto" type="text/javascript"></script>
+  {% if hasVendor() %}
+    <script src="{{ revisionedPath('scripts/vendor.js') }}" defer></script>
+  {% endif %}
+  {% if hasWebpackManifest() %}
+    <script>
+      (function() {
+        var p = '{{ getScriptsPath() }}';
+        var wm = window.webpackManifest = {{ getWebpackManifest() }};
+        Object.keys(wm).forEach(function(n){wm[n]=p+wm[n]});
+      })();
+    </script>
+  {% endif %}
+  <script src="{{ revisionedPath('scripts/app.bundle.js') }}" defer></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LB1LP1JBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2LB1LP1JBJ');
+  </script>
+  <link rel="pingback" href="{{site.pingback_url}}" />
+  {{function('wp_head')}}
+  {% block head %}
+  {% endblock %}
+</head>
+
+<body class="{{body_class}}">
+  {% block header %}
+    {% include 'components/header.twig' %}
+  {% endblock %}
+  
+  <main class="o-main">
+    {% block content %}
+      Sorry, no content
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include 'components/footer.twig' %}
+  {% endblock %}
+  {{ function('wp_footer') }}
+</body>
+</html>

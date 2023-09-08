@@ -1,0 +1,132 @@
+.c-block--newsletter {
+  & + & {
+    padding-top: 0;
+
+    .c-newsletter__content {
+      @include bp(medium) {
+        padding-top: 35px;
+      }
+    }
+  }
+}
+
+.c-newsletter__content {
+  padding: 24px 15px;
+  background: url('../../dist/assets/images/newsletter-bg.jpg') no-repeat center
+    center;
+  background-size: cover;
+  text-align: center;
+
+  @include bp(medium) {
+    padding: 70px 15px;
+  }
+
+  &.variant1 {
+    background-image: url('../../dist/assets/images/newsletter-bg-2.jpg');
+  }
+
+  &.no-bg {
+    background: none;
+  }
+
+  .hbspt-form,
+  .gform_wrapper {
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  a {
+    @extend .c-btn;
+    @extend .c-btn--reverse;
+    margin-top: 15px;
+
+    @include bp(medium) {
+      margin-top: 30px;
+    }
+  }
+
+  .hs-richtext {
+    margin-bottom: 30px;
+    padding: 0 10px;
+
+    p span {
+      font-size: 1.15em !important;
+    }
+  }
+
+  .hbspt-form .legal-consent-container .hs-form-booleancheckbox-display {
+    justify-content: center;
+  }
+}
+
+.c-newsletter__content,
+.c-footer {
+  .hs-richtext p span {
+    background-color: transparent !important;
+  }
+
+  .hs-form-field {
+    position: relative;
+  }
+
+  .hs-error-msgs {
+    left: 0;
+  }
+
+  .hbspt-form {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .hbspt-form input[type='checkbox'] {
+    width: auto;
+  }
+
+  .hs-email label {
+    display: none;
+  }
+
+  .legal-consent-container {
+    padding-top: 10px;
+  }
+
+  .legal-consent-container .hs-richtext {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .hs_error_rollup .hs-error-msgs {
+    position: relative;
+  }
+}
+
+.c-newsletter__form .gfield_html,
+.c-newsletter__title,
+.c-newsletter__text {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  .no-bg &,
+  .variant1 & {
+    max-width: 675px;
+  }
+}
+
+.variant1,
+.no-bg {
+  .c-newsletter__title {
+    @extend .h3;
+    margin-bottom: 20px;
+  }
+}
+
+.c-newsletter__form {
+  .gfield_html {
+    margin-bottom: 20px;
+
+    @include bp(medium) {
+      margin-bottom: 40px;
+    }
+  }
+}

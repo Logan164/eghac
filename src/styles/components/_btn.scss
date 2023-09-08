@@ -1,0 +1,125 @@
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+/**
+ * This is an example component. Extend inuitcss by building your own components
+ * that make up your UI. Component classes are prefixed with a `c-`.
+ */
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+button {
+  font: inherit;
+}
+
+.c-btn {
+  display: inline-block; /* [1] */
+  vertical-align: middle; /* [2] */
+  font: inherit; /* [3] */
+  text-align: center; /* [4] */
+  margin: 0; /* [4] */
+  cursor: pointer; /* [5] */
+  padding: 12px 24px;
+  background-color: white;
+  color: $color-blue;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border-radius: $global-radius-small;
+  transition: $global-transition;
+
+  @include bp(medium) {
+    font-size: 0.83em;
+  }
+
+  .c-footer & {
+    @include bp(medium) {
+      font-size: 1em;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: white;
+    background-color: $color-blue;
+    text-decoration: none;
+  }
+}
+
+.c-btn--reverse {
+  color: white;
+  background-color: $color-blue;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-blue;
+    background-color: white;
+  }
+}
+
+.c-btn--with-icon {
+  padding-right: 16px;
+
+  > span,
+  > i {
+    vertical-align: middle;
+  }
+
+  i {
+    margin-left: 4px;
+    font-size: 1.3em;
+  }
+}
+
+.c-btn--narrow {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include bp-down(medium) {
+    font-size: 0.85em;
+  }
+}
+
+.c-btn--outline {
+  border: 1px solid $color-blue-medium-light;
+  color: $color-blue-dark;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $color-blue;
+  }
+}
+
+.c-btn--alike {
+  cursor: default;
+}
+
+.c-btn--light {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+
+  &,
+  &:hover {
+    color: $color-blue-dark;
+    background-color: $color-blue-extra-light-variant;
+  }
+
+  i {
+    margin-right: 7px;
+    font-size: 1.2em;
+    color: $color-blue-light;
+  }
+}

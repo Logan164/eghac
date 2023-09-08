@@ -1,0 +1,21 @@
+{% if fields.text_and_image_content %}
+  <section class="c-block--text-and-image">
+    <div class="o-wrapper">
+      <div class="c-text-and-image__row">
+        {% if fields.text_and_image_content %}
+          <div class="animate fade-in move-up c-text-and-image__content">
+            {{ fields.text_and_image_content }}
+          </div>
+        {% endif %}
+        {% if fields.text_and_image_image %}
+          <div class="animate fade-in move-up c-text-and-image__image">
+            {% set img_src = fn( 'wp_get_attachment_image_src', fields.text_and_image_image, 'full' ) %}
+            <a href="{{ img_src[0] }}" class="js-gallery c-image-on-background__modal">
+              {{ fn( 'wp_get_attachment_image', fields.text_and_image_image, 'full' ) }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

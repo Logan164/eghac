@@ -1,0 +1,171 @@
+/* ==========================================================================
+   #POST
+   Includes styles for default WP images classes
+   ========================================================================== */
+
+.c-post {
+  @include clearfix();
+  margin-bottom: 2em;
+}
+
+.c-post__wrapper {
+  position: relative;
+  margin-top: 20px;
+  z-index: 2;
+
+  @include bp(medium) {
+    margin-top: 40px;
+  }
+}
+
+.c-post__thumbnail {
+  display: inline-block;
+  max-width: 889px;
+  margin: 0 auto 80px;
+  border-radius: $global-radius;
+  overflow: hidden;
+}
+
+.c-post__inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.c-post__title {
+  @extend .h2;
+  margin-bottom: 0.35em;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.1;
+  color: $color-black;
+}
+
+.c-post__date {
+  margin-bottom: 40px;
+  font-size: 0.8em;
+  text-align: center;
+  color: $color-semidark-grey;
+}
+
+.c-post_cat {
+  position: relative;
+  margin-bottom: 12px;
+  text-align: center;
+
+  .c-post-preview__cat {
+    position: static;
+    display: inline-block;
+  }
+}
+
+.alignnone {
+  margin: 0 1em 1em 0;
+}
+
+.aligncenter {
+  margin: 1em auto;
+}
+
+.alignright {
+  float: right;
+  margin: 1em 0 1em 1em;
+}
+
+.alignleft {
+  float: left;
+  margin: 1em 1em 1em 0;
+}
+
+.wp-caption {
+  text-align: center;
+}
+
+.wp-caption-text {
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+.block-editor__typewriter,
+.c-post__content {
+  margin-bottom: 48px;
+  color: $color-dark-grey;
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  .is-style-circle-mask img,
+  .is-style-rounded img {
+    @extend .o-radius;
+    display: inline-block;
+  }
+
+  .wp-block-image {
+    margin: 20px 0;
+    text-align: center;
+
+    @include bp(large) {
+      margin: 40px -114px;
+    }
+  }
+}
+
+.block-editor__typewriter {
+  .wp-block-image {
+    @include bp(large) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.c-post__bottom,
+.c-post__tags {
+  display: flex;
+  padding-top: 40px;
+  border-top: 1px solid $color-light-grey;
+}
+
+.c-post__bottom {
+  align-items: flex-start;
+  justify-content: space-between;
+
+  a {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.c-post__tags {
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+.c-post__tag {
+  padding: 8px;
+  font-weight: bold;
+
+  &:first-of-type {
+    margin-left: 8px;
+  }
+}
+
+.c-post__tags-label {
+  color: $color-semidark-grey;
+}
+
+.c-post__thumbnail-wrapper {
+  text-align: center;
+}
+
+.c-post__event-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  .c-btn {
+    margin: 4px;
+  }
+}

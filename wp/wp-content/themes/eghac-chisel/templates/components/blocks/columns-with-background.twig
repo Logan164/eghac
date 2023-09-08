@@ -1,0 +1,32 @@
+{% if fields.columns_bg_content or fields.columns_bg_image or fields.columns_bg_columns or fields.columns_bg_cta %}
+  {% set bgImage = fn('get_template_directory_uri') ~ '/dist/assets/images/windmill.jpg' %}
+  {% if fields.columns_bg_background_image %}
+    {% set bgImage = fields.columns_bg_background_image %}
+  {% endif %}
+  <section class="c-block--columns-with-bg">
+    <div class="o-wrapper">
+      <div class="animate fade-in o-radius c-columns-bg" style="background-image: url({{ bgImage }});">
+        <div class="c-columns-bg__inner">
+          {% if fields.columns_bg_content %}
+            <div class="animate fade-in move-up">{{ fields.columns_bg_content }}</div>
+          {% endif %}
+          {% if fields.columns_bg_image %}
+            <div class="animate fade-in move-up c-columns-bg__image">{{ fn( 'wp_get_attachment_image', fields.columns_bg_image, 'full' ) }}</div>
+          {% endif %}
+          {% if fields.columns_bg_columns %}
+            <div class="c-columns-bg__cols">
+              {% for col in fields.columns_bg_columns %}
+                <div class="animate fade-in move-up c-columns-bg__col">{{ col.content }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if fields.columns_bg_cta %}
+            <div class="animate fade-in move-up c-columns-bg__cta">
+              <a href="{{ fields.columns_bg_cta.url }}" target="{{ fields.columns_bg_cta.target }}" class="c-btn">{{ fields.columns_bg_cta.title }}</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

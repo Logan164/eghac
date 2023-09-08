@@ -1,0 +1,25 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  {% include 'components/blocks/page-hero.twig' with { fields: {page_hero_title: 'Projects', page_hero_image: options.projects_hero_image, page_hero_lower_content: options.projects_content} } %}
+  <div class="o-wrapper o-main__content">
+    <div class="c-ne__filters">
+      <div class="c-ne__filters-left">
+        <span class="c-ne__filters-right-label">{{ __('Sort by', 'eghac') }}</span>
+        <div class="c-ne__filters-left-items">
+          <a href="/projects" class="c-btn c-btn--narrow {{ orderby == '' ? 'c-btn--reverse' : 'c-btn--outline' }}">Default</a>
+          <a href="?order=value_chain" class="c-btn c-btn--narrow {{ orderby == 'value_chain' ? 'c-btn--reverse' : 'c-btn--outline' }}">Value Chain</a>
+          <a href="?order=region" class="c-btn c-btn--narrow {{ orderby == 'region' ? 'c-btn--reverse' : 'c-btn--outline' }}">Region</a>
+          <a href="?order=a_z" class="c-btn c-btn--narrow {{ orderby == 'a_z' ? 'c-btn--reverse' : 'c-btn--outline' }}">A-Z</a>
+          <a href="?order=z_a" class="c-btn c-btn--narrow {{ orderby == 'z_a' ? 'c-btn--reverse' : 'c-btn--outline' }}">Z-A</a>
+        </div>
+      </div>
+    </div>
+    <section class="c-ne__list c-projects__list">
+      {% for post in posts %}
+        {% include ['components/post-preview-project.twig', 'components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': loop.index} %}
+      {% endfor %}
+    </section>
+    {% include 'components/pagination.twig' with {pagiPosts: posts, customPagination: custom_pagination} %}
+  </div>
+{% endblock %}

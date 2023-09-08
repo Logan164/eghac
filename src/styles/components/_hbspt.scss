@@ -1,0 +1,148 @@
+.hbspt-form {
+  @extend .o-radius;
+  padding: 18px;
+  background-color: $color-very-light-grey;
+
+  @include bp(medium) {
+    padding: 24px;
+    font-size: 0.85em;
+  }
+
+  @include bp(large) {
+    padding: 48px;
+  }
+
+  form,
+  iframe {
+    max-width: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    padding-left: 8px;
+    color: $color-semidark-grey;
+  }
+
+  .hs-form-required {
+    color: #ff0000;
+  }
+
+  input {
+    padding: 13px 16px;
+  }
+
+  select {
+    padding: 11.5px 16px;
+  }
+
+  form fieldset {
+    max-width: 150%;
+
+    @include bp(medium) {
+      margin-bottom: 20px;
+    }
+  }
+
+  form fieldset.form-columns-2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: -12px;
+    margin-right: -12px;
+
+    .hs-dependent-field,
+    .hs-form-field {
+      width: 100%;
+
+      @include bp(medium) {
+        width: 50%;
+      }
+    }
+
+    .hs-form-field {
+      position: relative;
+      margin-bottom: 15px;
+      padding: 0 12px;
+      float: none;
+
+      @include bp(medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    .hs-dependent-field .hs-form-field {
+      width: 100%;
+    }
+
+    select,
+    .hs-input,
+    .input {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  form fieldset.form-columns-1 {
+    .hs-form-field {
+      margin-bottom: 15px;
+
+      @include bp(medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    .input {
+      margin: 0;
+    }
+
+    .hs-input {
+      width: 100%;
+    }
+  }
+
+  ul li {
+    &,
+    label {
+      margin: 0;
+    }
+  }
+
+  .legal-consent-container .field.hs-form-field {
+    margin-bottom: 20px;
+  }
+
+  input[type='submit'] {
+    display: block;
+    min-width: 81px;
+    margin-left: auto;
+    text-transform: capitalize;
+  }
+
+  .legal-consent-container .hs-form-booleancheckbox-display {
+    display: flex;
+    align-items: center;
+    margin-left: -8px;
+
+    > span {
+      margin-left: 10px;
+    }
+  }
+}
+
+textarea.hs-input {
+  min-height: 160px;
+}
+
+.hs-error-msgs {
+  position: absolute;
+  top: 100%;
+  left: 12px;
+  font-size: 0.8em;
+}
+
+.hs-richtext {
+  margin-bottom: 20px;
+  color: $color-semidark-grey;
+}

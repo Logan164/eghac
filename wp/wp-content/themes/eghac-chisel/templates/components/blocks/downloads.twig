@@ -1,0 +1,31 @@
+{% if fields.downloads %}
+  <section class="c-block c-block--downloads">
+    <div class="o-wrapper">
+      {% for section in fields.downloads %}
+        <div class="c-downloads">
+          <h3 class="animate fade-in move-up">{{ section.title }}</h3>
+          <div class="o-layout--l o-layout--l--2 o-layout--wrap">
+            {% for item in section.items %}
+              <div class="animate fade-in move-up o-layout__item">
+                <div class="o-radius c-downloads__item">
+                  <div class="c-downloads__item-inner">
+                    <p class="title">{{ item.title }}</p>
+                    {{ item.content }}
+                  </div>
+                  {% if item.file %}
+                    <div>
+                      <a href="{{ item.file }}" target="_blank" class="c-btn c-btn--reverse c-btn--with-icon">
+                        <span>Download</span>
+                        <i class="icon-download"></i>
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

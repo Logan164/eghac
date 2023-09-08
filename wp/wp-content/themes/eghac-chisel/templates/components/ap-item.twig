@@ -1,0 +1,17 @@
+{% set bg = Image(item.ap_background_image) %}
+<div class="c-ap-item__wrapper">
+  <div class="c-ap-item__sizer">
+    <div class="o-radius c-ap-item" style="background-image: url({{ bg }});">
+      <div class="c-ap-item__content">
+        <h3 class="c-ap-item__title">{{ item.ap_item_title }}</h3>
+        <div class="">{{ item.ap_content }}</div>
+      </div>
+      <div class="c-ap-item__content">
+        <a href="{{ item.ap_cta.url }}" class="c-btn c-btn--with-icon" target="{{ item.ap_cta.target }}">
+          <span>{{ item.ap_cta.title }}</span>
+          <i class="icon-arrow-right"><span class="path1"></span><span class="path2"></span></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

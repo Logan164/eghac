@@ -1,0 +1,14 @@
+{% extends "components/tease.twig" %}
+
+{% block content %}
+  {% if post.thumbnail.src %}
+    <div class="o-radius">
+      <img src="{{post.thumbnail.src|resize(318, 240) }}">
+    </div>
+  {% endif %}
+  <p class="c-tease__title">{{ post.date|date('M j, Y') }}</p>
+  <p class="c-tease__title">
+    <a href="{{ post.link }}"><strong>{{ post.title }}</strong></a>
+  </p>
+  <p>{{ post.preview().length(25) }}</p>
+{% endblock %}

@@ -1,0 +1,18 @@
+.c-stmt__content {
+  max-width: 430px;
+  margin: 24px 0;
+  
+  @include bp(medium) {
+    margin: 0;
+    transform: translateY(-30%);
+  }
+  
+  @include bp(large) {
+    transform: translateY(-50%);
+  }
+
+  h2, h3, h4, h5 {
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+}

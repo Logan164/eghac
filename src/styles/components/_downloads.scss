@@ -1,0 +1,61 @@
+.c-downloads {
+  margin-bottom: 20px;
+}
+
+.c-downloads__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 18px;
+  background-color: $color-fill;
+
+  @include bp(large) {
+    margin-bottom: 0;
+    padding: 32px;
+  }
+
+  .c-btn {
+    @include bp-down(medium) {
+      padding: 12px;
+    }
+  }
+
+  .c-btn i {
+    font-size: 1.5em;
+
+    @include bp-down(medium) {
+      margin-left: 0;
+    }
+  }
+
+  .c-btn span {
+    display: none;
+
+    @include bp(medium) {
+      display: inline-block;
+    }
+  }
+}
+
+.c-downloads__item-inner {
+  flex: 1;
+  margin-bottom: 15px;
+  padding-right: 15px;
+  
+  @include bp(large) {
+    margin-bottom: 0;
+    padding-right: 48px;
+    font-size: 0.85em;
+  }
+
+  .title {
+    margin-bottom: 0.3em;
+    color: $color-blue-dark;
+    font-weight: bold;
+
+    @include bp(medium) {
+      font-size: 1.2em;
+    }
+  }
+}

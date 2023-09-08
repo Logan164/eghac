@@ -1,0 +1,55 @@
+.gfield {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.gfield_required {
+  display: none;
+}
+
+.gform_fields {
+  margin: 0;
+}
+
+.gform_footer {
+  position: relative;
+  text-align: right;
+}
+
+.gform_ajax_spinner {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-left: 10px;
+  transform: translateY(-50%);
+}
+
+.validation_error,
+.validation_message {
+  font-size: 0.85em;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 15.5px 16px;
+  font-size: 0.85em;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: white;
+  font: inherit;
+}
+
+input[type="submit"] {
+  @extend .c-btn;
+  @extend .c-btn--reverse;
+
+  width: auto;
+  display: inline-block;
+}
+
+.hs-recaptcha {
+  margin-bottom: 15px;
+}

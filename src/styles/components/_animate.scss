@@ -1,0 +1,33 @@
+.animate {
+  transition: $global-transition;
+
+  @for $i from 2 through 8 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i / 10 - 0.1}s;
+    }
+  }
+
+  &.fade-in {
+    opacity: 0;
+  }
+
+  &.move-up {
+    transform: translateY(30px);
+  }
+
+  &.animate-in {
+    &.fade-in {
+      opacity: 1;
+    }
+    
+    &.move-up {
+      transform: translateY(0);
+    }
+  }
+}
+
+.no-js .animate {
+  .fade-in {
+    opacity: 1;
+  }
+}

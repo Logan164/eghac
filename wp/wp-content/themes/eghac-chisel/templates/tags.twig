@@ -1,0 +1,13 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  <div class="o-wrapper o-wrapper--narrow o-main__content">
+    <h1 class="u-text-center c-page-title">{{ title }}</h1>
+    <section class="c-ne__list">
+      {% for post in posts %}
+        {% include ['components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': loop.index} %}
+      {% endfor %}
+    </section>
+    {% include 'components/pagination.twig' with {pagiPosts: posts, customPagination: custom_pagination} %}
+  </div>
+{% endblock %}

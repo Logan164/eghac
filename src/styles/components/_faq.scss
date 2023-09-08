@@ -1,0 +1,60 @@
+.c-faq__item {
+  margin-bottom: 15px;
+  background-color: $color-very-light-grey;
+
+  @include bp(large) {
+    margin-bottom: 24px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-faq__item-toggle {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  padding-right: 45px;
+  text-align: left;
+  color: $color-blue-dark;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+
+  @include bp(large) {
+    padding: 24px;
+    padding-right: 50px;
+    font-size: 1.3rem;
+  }
+
+  i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    font-size: 26px;
+    transform: translateY(-50%);
+    transition: $global-transition;
+
+    @include bp(large) {
+      right: 24px;
+    }
+  }
+
+  .active & {
+    i {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+}
+
+.c-faq__item-content {
+  display: none;
+  padding: 10px 15px 15px;
+
+  @include bp(large) {
+    padding: 10px 24px 24px;
+  }
+}

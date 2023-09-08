@@ -1,0 +1,67 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  <article id="post-{{ post.ID }}" class="c-post__wrapper">
+    <section class="o-wrapper c-post">
+      <div class="c-post__thumbnail-wrapper">
+        <div class="animate fade-in move-up c-post__thumbnail">{{ fn( 'get_the_post_thumbnail', post.ID, 'pinned-thumbnail' ) }}</div>
+      </div>
+      <div class="c-post__inner">
+        {% if post.category %}
+          <div class="animate fade-in move-up c-post_cat c-post__cat--{{ post.category|lower }}"><span class="c-post-preview__cat">{{ post.categories|join(',') }}</span></div>
+        {% endif %}
+        <h1 class="animate fade-in move-up c-post__title">{{ post.title }}</h1>
+        {% if post.meta('event_date') or post.meta('event_location') or post.meta('event_cta') or post.meta('project_name') or post.meta('project_location') or post.meta('project_cta') %}
+          <div class="c-post__event-details">
+            {% if post.meta('event_date') %}
+              <div class="animate fade-in move-up c-btn c-btn--alike c-btn--light"><i class="icon-calendar"></i>{{ post.meta('event_date') }}{% if post.meta('event_date_end') %} - {{ post.meta('event_date_end') }}{% endif %}</div>
+            {% endif %}
+            {% if post.meta('event_location') %}
+              <div class="animate fade-in move-up c-btn c-btn--alike c-btn--light"><i class="icon-location"></i>{{ post.meta('event_location') }}</div>
+            {% endif %}
+            {% if post.meta('event_cta') %}
+              <a href="{{ post.meta('event_cta').url }}" target="{{ post.meta('event_cta').target }}" class="animate fade-in move-up c-btn c-btn--reverse">{{ post.meta('event_cta').title }}</a>
+            {% endif %}
+
+            {% if post.meta('project_name') %}
+              <div class="animate fade-in move-up c-btn c-btn--alike c-btn--light"><i class="icon-star"></i>{{ post.meta('project_name') }}</div>
+            {% endif %}
+            {% if post.meta('project_location') %}
+              <div class="animate fade-in move-up c-btn c-btn--alike c-btn--light"><i class="icon-location"></i>{{ post.meta('project_location') }}</div>
+            {% endif %}
+            {% if post.meta('project_cta') %}
+              <a href="{{ post.meta('project_cta').url }}" target="{{ post.meta('project_cta').target }}" class="animate fade-in move-up c-btn c-btn--reverse">{{ post.meta('project_cta').title }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if post.type != 'project' and not post.meta('event_date') %}
+          <div class="animate fade-in move-up c-post__date">{{ post.date|date('M j, Y') }}</div>
+        {% endif %}
+        <div class="c-post__content">{{ post.content }}</div>
+        {% set tags = post.tags %}
+        {% if post.terms('project_tag') %}
+          {% set tags = post.terms('project_tag') %}
+        {% endif %}
+
+        {% if tags|length %}
+          <div class="c-post__tags">
+            <span class="animate fade-in move-up c-post__tags-label">Tags</span>
+            {% for tag in tags %}
+              <a href="{{ tag.link }}" class="animate fade-in move-up c-post__tag">{{ tag.name }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <div class="c-post__bottom">
+          {% if post.prev %}
+            <a href="{{ post.prev.link }}" class="animate fade-in move-up c-btn c-btn--outline">Previous</a>
+          {% endif %}
+          {% if post.next %}
+            <a href="{{ post.next.link }}" class="animate fade-in move-up c-btn c-btn--outline">Next</a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    {% include 'components/related.twig' %}
+  </article>
+
+{% endblock %}

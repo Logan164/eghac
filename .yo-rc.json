@@ -1,0 +1,14 @@
+{
+  "generator-chisel": {
+    "config": {
+      "name": "EGHAC",
+      "author": "Marcin Ziółek",
+      "projectType": "wp-with-fe",
+      "nameSlug": "eghac",
+      "nameCamel": "Eghac",
+      "chiselVersion": "0.16.1",
+      "has_jquery": true,
+      "has_jquery_vendor_config": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<section class="c-block c-block--actions-and-projects">
+  <div class="o-wrapper">
+    <h2 class="animate fade-in u-text-center">{{ fields.ap_title }}</h2>
+    <div class="animate fade-in u-text-center c-actions-projects__subtitle">{{ fields.ap_subtitle }}</div>
+    {% if fields.ap_items %}
+      <div class="o-layout c-actions-projects__items">
+        {% for item in fields.ap_items %}
+          <div class="animate fade-in move-up o-layout__item c-actions-projects__item">
+            {% include 'components/ap-item.twig' %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,60 @@
+/* ==========================================================================
+   #LINKS
+   ========================================================================== */
+
+a {
+  color: $color-blue;
+  text-decoration: none;
+  transition: $global-transition;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  
+  &:hover {
+    color: $color-blue-light;
+    text-decoration: underline;
+  }
+}
+
+.link {
+  transition: $global-transition;
+
+  &:hover {
+    text-decoration: none;
+
+    > span:after {
+      width: 100%;
+      opacity: 1;
+      transition: width 300ms, opacity 1ms ease;
+    }
+  }
+
+  > span {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: $color-white;
+      background-color: currentColor;
+      opacity: 0;
+      transition: width 300ms, opacity 1000ms ease;
+      transform: translateX(-50%);
+    }
+  }
+
+  i {
+    vertical-align: middle;
+  }
+}

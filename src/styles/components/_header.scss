@@ -1,0 +1,74 @@
+/* ==========================================================================
+   #HEADER
+   ========================================================================== */
+
+.c-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  transition: $global-transition;
+  z-index: 99;
+
+  @include bp(medium) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.c-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-header__logo {
+  display: block;
+
+  @include bp-down(500px) {
+    width: 110px;
+  }
+}
+
+.c-header__logo--additional {
+  margin-left: auto;
+
+  @include bp-down(medium) {
+    width: 120px;
+  }
+
+  @include bp-down(small) {
+    width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  @include bp(medium) {
+    margin-left: 1.065em;
+    margin-right: auto;
+  }
+
+  @include bp(large) {
+    margin-right: 0;
+  }
+
+  .c-main-nav__logo-additional & {
+    @include bp-down(medium) {
+      display: block;
+      margin-left: 15px;
+    }
+  }
+}
+
+.c-header__logo-right {
+  @include bp-down(500px) {
+    width: 90px;
+  }
+
+  img {
+    display: block;
+  }
+}

@@ -1,0 +1,48 @@
+.c-block--gbc {
+  padding-bottom: 40px;
+}
+
+.c-gbc__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.c-gbc__item {
+  width: 100%;
+  padding: 6px 12px;
+  
+  @include bp(medium) {
+    width: 50%;
+    padding: 12px;
+  }
+
+  @include bp(large) {
+    width: 33.333333%;
+  }
+}
+
+.c-gbc__item-content {
+  height: 100%;
+  padding: 20px;
+  background-color: $color-very-light-grey;
+
+  @include bp(large) {
+    padding: 40px;
+  }
+
+  img {
+    margin-bottom: 10px;
+
+    @include bp(medium) {
+      margin-bottom: 20px;
+    }
+  }
+
+  h4 {
+    font-weight: bold;
+    color: $color-blue;
+  }
+}

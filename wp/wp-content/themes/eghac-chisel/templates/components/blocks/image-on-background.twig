@@ -1,0 +1,12 @@
+{% if fields.image_on_bg %}
+  <section class="c-block c-block--image-on-background">
+    <div class="o-wrapper">
+      <div class="animate fade-in o-radius o-radius--large c-image-on-background">
+        {% set img_src = fn( 'wp_get_attachment_image_src', fields.image_on_bg, 'full' ) %}
+        <a href="{{ img_src[0] }}" class="js-gallery c-image-on-background__modal">
+          {{ fn( 'wp_get_attachment_image', fields.image_on_bg, 'full' ) }}
+        </a>
+      </div>
+    </div>
+  </section>
+{% endif %}

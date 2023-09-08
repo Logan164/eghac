@@ -1,0 +1,30 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+  <div class="o-wrapper o-wrapper--narrow o-main__content{% if not fn('single_post_title', '', false) %} no-title{% endif %}">
+    {% if fn('single_post_title', '', false) %}
+      <h1 class="u-text-center c-page-title">{{ fn('single_post_title') }}</h1>
+    {% endif %}
+    {% if pinned %}
+      {% include 'components/post-preview-pinned.twig' with {'single': pinned} %}
+    {% endif %}
+    <div class="c-ne__filters">
+      <div class="c-ne__filters-left">
+        <a href="/news-events" class="c-btn c-btn--narrow {{ posts_page == page.ID ? 'c-btn--reverse' : 'c-btn--outline' }}">Show all</a>
+        <a href="/category/news" class="c-btn c-btn--narrow {{ page.slug == 'news' ? 'c-btn--reverse' : 'c-btn--outline' }}">News</a>
+        <a href="/category/events" class="c-btn c-btn--narrow {{ page.slug == 'events' ? 'c-btn--reverse' : 'c-btn--outline' }}">Events</a>
+      </div>
+      <div class="c-ne__filters-right">
+        <span class="c-ne__filters-right-label">{{ __('Sort by', 'eghac') }}</span>
+        <a href="?order=desc" class="c-btn c-btn--narrow {{ order == 'desc' ? 'c-btn--reverse' : 'c-btn--outline' }}">Latest</a>
+        <a href="?order=asc" class="c-btn c-btn--narrow {{ order == 'asc' ? 'c-btn--reverse' : 'c-btn--outline' }}">Oldest</a>
+      </div>
+    </div>
+    <section class="c-ne__list">
+      {% for post in posts %}
+        {% include ['components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': loop.index} %}
+      {% endfor %}
+    </section>
+    {% include 'components/pagination.twig' with {pagiPosts: posts, customPagination: custom_pagination} %}
+  </div>
+{% endblock %}

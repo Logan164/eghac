@@ -1,0 +1,21 @@
+{% if fields.gbc_items %}
+  <section class="c-block--gbc">
+    <div class="o-wrapper">
+      <div class="c-gbc__items">
+        {% for item in fields.gbc_items %}
+          <div class="animate fade-in move-up c-gbc__item">
+            <div class="o-radius c-gbc__item-content">
+              {{ fn( 'wp_get_attachment_image', item.icon, 'full' ) }}
+              {% if item.title %}
+                <h4>{{ item.title }}</h4>
+              {% endif %}
+              {% if item.title %}
+                {{ item.content }}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,13 @@
+.c-page__sections {
+  position: relative;
+  z-index: 1;
+}
+
+.c-page-title {
+  margin-top: 20px;
+  margin-bottom: 2rem;
+
+  @include bp(medium) {
+    margin-top: 40px;
+  }
+}

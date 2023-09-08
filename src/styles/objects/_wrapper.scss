@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+
+.o-wrapper {
+  width: 100%;
+  max-width: 1374px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.o-wrapper--narrow {
+  position: relative;
+  max-width: 919px;
+  z-index: 1;
+}

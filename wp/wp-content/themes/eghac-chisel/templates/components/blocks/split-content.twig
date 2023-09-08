@@ -1,0 +1,31 @@
+{% if fields.split_content_content or fields.split_content_items %}
+  <section class="c-block--split-content">
+    <div class="o-wrapper">
+      {% if fields.split_content_content %}
+        <div class="animate fade-in move-up c-split-content__content">
+          {{ fields.split_content_content }}
+        </div>
+      {% endif %}
+      {% if fields.split_content_items %}
+        <div class="c-split-content__content-items">
+          {% for item in fields.split_content_items %}
+            <div class="animate fade-in move-up c-split-content__content-item">
+              <div class="o-radius c-split-content__content-item-inner" style="background-image: url({{ TimberImage(item.image)|resize(660,320) }});">
+                <div class="c-split-content__content-wrapper">
+                  <p class="title">{{ item.title }}</p>
+                  <div>{{ item.content }}</div>
+                  <div class="cta">
+                    <a href="{{ item.cta.url }}" target="{{ item.cta.target }}" class="c-btn c-btn--with-icon">
+                      <span>{{ item.cta.title }}</span>
+                      <i class="icon-arrow-right"><span class="path1"></span><span class="path2"></span></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,26 @@
+{% set single_news = TimberPost(single_news) %}
+<div class="animate fade-in move-up c-post-preview__wrapper c-post__type--{{ post.type }}{% if single_news.category|lower %} c-post__cat--{{ single_news.category|lower }}{% endif %}">
+  <div class="c-post-preview">
+    <a href="{{ single_news.link }}" class="c-post-preview__thumb-wrapper">
+      <span class="o-radius c-post-preview__thumb">
+        {% if index and index < 3 %}
+          {{ fn( 'get_the_post_thumbnail', single_news.ID, 'large-thumbnail' ) }}
+        {% else %}
+          {{ fn( 'get_the_post_thumbnail', single_news.ID, 'small-thumbnail' ) }}
+        {% endif %}
+      </span>
+      {% if single_news.category %}
+        <span class="c-post-preview__cat">{{ single_news.category.name }}</span>
+      {% endif %}
+    </a>
+    {% set date = single_news.date|date('M j, Y') %}
+    {% if single_news.meta('event_date') %}
+      {% set date = single_news.meta('event_date')|date('M j, Y') %}
+    {% endif %}
+    <p class="c-post-preview__date">{{ date }}</p>
+    <a href="{{ single_news.link }}" class="js-ellipsis c-post-preview__title">{{ single_news.title }}</a>
+    <a href="{{ single_news.link }}" class="c-post-preview__preview">
+      {{ single_news.preview.length(21).read_more('') }}
+    </a>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{% if fields.video or fields.video_uploaded %}
+  <div class="c-video">
+    {% if fields.video_placeholder %}
+      <a href="#" class="js-video-play o-radius c-video__placeholder" style="background-image: url({{ fn('wp_get_attachment_image_url', fields.video_placeholder, 'video-thumbnail') }});">
+        <img src="{{ assetPath('images/play-button.svg') }}" alt="Play button" width="96" height="96">
+      </a>
+    {% endif %}
+    {% if fields.video %}
+      {% if fields.video_placeholder %}
+        {{ videoClickLoad(fields.video) }}
+      {% else %}
+        {{ fields.video }}
+      {% endif %}
+    {% elseif fields.video_uploaded %}
+      <div class="c-embed c-embed--video c-embed--uploaded">
+        <video 
+          src="{{ fields.video_uploaded }}"
+          controls>
+        </video>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

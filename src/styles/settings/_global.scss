@@ -1,0 +1,61 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+$global-radius: 8px !default;
+$global-radius-small: 4px !default;
+$global-transition: all 300ms ease !default;
+
+/* Fonts
+   ========================================================================== */
+
+$font-sans-serif: 'Titillium Web', -apple-system, system-ui, BlinkMacSystemFont,
+  'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif !default;
+
+/* Breakpoints
+   ========================================================================== */
+
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1280px,
+  xxlarge: 1440px,
+  full: 1600px,
+);
+
+/* Colors
+   ========================================================================== */
+
+// Colors shouldn't be used directly but reassigned
+$color-white: #fff;
+$color-black: #000;
+$color-very-light-grey: #f5f6f6;
+$color-light-grey: #dfe1e2;
+$color-medium-grey: #b0bcc0;
+$color-semidark-grey: #798b91;
+$color-dark-grey: #364144;
+
+// Text
+$color-bg: $color-white;
+$color-text: $color-black;
+
+// Links
+$color-link: $color-medium-grey;
+$color-hover: $color-light-grey;
+
+// Fills
+$color-fill: $color-very-light-grey;
+
+$color-blue-dark: #002f66;
+$color-blue: #004494;
+$color-blue-light: #005ecc;
+$color-blue-medium-light: #73c4ee;
+$color-blue-extra-light: #dbf0fb;
+$color-blue-extra-light-variant: #edf7fd;
+$color-green: #96c247;
+
+// Borders
+$color-border: $color-blue;

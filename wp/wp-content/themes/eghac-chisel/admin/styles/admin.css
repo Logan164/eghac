@@ -1,0 +1,31 @@
+.block-editor-block-list__layout {
+  font-family: 'Titillium Web', -apple-system, system-ui, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: black;
+  font-size: 1em;
+  line-height: 1.4444;
+}
+
+@media (min-width: 768px) {
+  .block-editor-block-list__layout {
+    font-size: 1.125em;
+  }
+}
+
+.interface-interface-skeleton__left-sidebar,
+.interface-interface-skeleton__sidebar {
+  width: 35%;
+}
+
+.interface-complementary-area {
+  width: 100%;
+}
+
+.wp-block {
+  max-width: 1400px;
+  width: 100%;
+}
+
+.wp-block h1 {
+  color: inherit;
+}

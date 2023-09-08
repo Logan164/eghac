@@ -1,0 +1,22 @@
+{{ dump(pagiPosts.pagination) }}
+<div class="c-pagination">
+  {% if pagiPosts.pagination.prev %}
+    <a href="{{pagiPosts.pagination.prev.link}}" class="c-pagination__side prev {{pagiPosts.pagination.prev.link|length ? '' : 'invisible'}}">Prev</a>
+  {% endif %}
+  {% if customPagination %}
+    <ul class="c-pagination__pages">
+      {% for page in customPagination.pages %}
+        <li>
+          {% if page.link %}
+            <a href="{{page.link}}" class="c-btn c-pagination__item {{page.class}}">{{page.title}}</a>
+          {% else %}
+            <span class="c-btn c-btn--reverse c-pagination__item {{page.class}}">{{page.title}}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if pagiPosts.pagination.next %}
+    <a href="{{posts.pagination.next.link}}" class="c-pagination__side next {{posts.pagination.next.link|length ? '' : 'invisible'}}">Next</a>
+  {% endif %}
+</div>

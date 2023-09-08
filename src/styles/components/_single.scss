@@ -1,0 +1,15 @@
+.single {
+  .c-post__thumbnail {
+    margin-bottom: 40px;
+  }
+}
+
+.single-project {
+  .c-post__content {
+    margin-top: 16px;
+
+    @include bp(medium) {
+      margin-top: 36px;
+    }
+  }
+}

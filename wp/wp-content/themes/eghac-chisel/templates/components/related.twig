@@ -1,0 +1,12 @@
+{% if related_items|length %}
+  <section class="c-related">
+    <div class="o-wrapper">
+      <h2 class="u-text-center">{{ related_title }}</h2>
+      <section class="c-related__list">
+        {% for post in related_items %}
+          {% include ['components/post-preview.twig', 'components/tease-'~post.post_type~'.twig', 'components/tease.twig'] with {'single_news': post, 'index': 5} %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

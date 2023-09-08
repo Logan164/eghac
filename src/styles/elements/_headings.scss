@@ -1,0 +1,61 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+
+h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  line-height: 1.1;
+
+  @include bp(small) {
+    font-size: 3.55rem;
+  }
+}
+
+.h2,
+h2 {
+  margin-bottom: 0;
+  font-size: 2.2rem;
+  line-height: 1.3;
+
+  @include bp(medium) {
+    font-size: 2.65rem;
+  }
+}
+
+.h3,
+h3 {
+  font-size: 1.5rem;
+  
+  @include bp(medium) {
+    font-size: 2rem;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  color: $color-blue-dark;
+}

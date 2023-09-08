@@ -1,0 +1,50 @@
+<section class="c-block c-block--latest-news-events">
+  <div class="o-wrapper">
+    <div class="o-layout">
+      <div class="o-layout__item c-latest-news-events__news">
+        <div class="c-latest-news-events__title">
+          {% if fields.latest_news_title %}
+            <h3 class="animate fade-in">{{ fields.latest_news_title }}</h3>
+          {% endif %}
+          <a href="{{ TimberTerm(fields.news_taxonomy).link }}" class="animate fade-in link c-latest-news-events__all">
+            <span>All {{ fields.news_taxonomy.name|lower }}</span> <i class="icon-arrow-right"><span class="path1"></span><span class="path2"></span></i>
+          </a>
+        </div>
+        {% if fields.news|length %}
+          <div class="c-slider__wrapper">
+            <div class="js-slider-wrapper-mobile c-latest-news__posts">
+              {% for single_news in fields.news %}
+                {% include 'components/post-preview.twig' %}
+              {% endfor %}
+            </div>
+            <div class="js-slider-arrows-mobile c-hero__slider-arrows c-slider__arrows"></div>
+          </div>
+        {% else %}
+          <p class="animate fade-in c-latest-news__noposts">{{ fields.no_news_notice }}</p>
+        {% endif %}
+      </div>
+
+      <div class="o-layout__item c-latest-news-events__events">
+        <div class="c-latest-news-events__title">
+          {% if fields.upcoming_events_title %}
+            <h3 class="animate fade-in">{{ fields.upcoming_events_title }}</h3>
+          {% endif %}   
+        </div>
+        {% if fields.events|length %}
+          <div class="animate fade-in move-up o-radius c-latest-news__events">
+            {% for single_event in fields.events %}
+              {% include 'components/post-event-preview.twig' %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="animate fade-in c-latest-news__noposts">{{ fields.no_events_notice }}</p>
+        {% endif %}
+        <div class="animate fade-in u-text-center">
+          <a href="{{ TimberTerm(fields.events_taxonomy).link }}" class="link c-latest-news-events__all">
+            <span>All {{ fields.events_taxonomy.name|lower }}</span> <i class="icon-arrow-right"><span class="path1"></span><span class="path2"></span></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

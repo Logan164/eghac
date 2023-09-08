@@ -1,0 +1,14 @@
+{% set single_event = TimberPost(single_event) %}
+<a href="{{ single_event.link }}"  class="c-post-preview--event__wrapper">
+  <div class="c-post-preview--event">
+    <p class="c-post-preview--event__date">
+      <i class="icon-calendar"></i>
+      <span class="month-day">{{ single_event.meta('event_date')|date('M j') }}</span>
+      <span class="year">{{ single_event.meta('event_date')|date('Y') }}</span>
+    </p>
+    <div>
+      <p class="c-post-preview--event__title">{{ single_event.title }}</p>
+      <p class="js-ellipsis-2 c-post-preview--event__preview">{{ single_event.preview.length(10).read_more('') }}</p>
+    </div>
+  </div>
+</a>

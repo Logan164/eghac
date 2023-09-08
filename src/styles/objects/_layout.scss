@@ -1,0 +1,56 @@
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+/* Simple flexbox layout system */
+
+.o-layout {
+  display: block;
+
+  @include bp(medium) {
+    display: flex;
+  }
+}
+
+.o-layout--l {
+  display: block;
+
+  @include bp(large) {
+    display: flex;
+  }
+}
+
+.o-layout__item {
+  flex: 1;
+}
+
+.o-layout--wrap {
+  flex-wrap: wrap;
+}
+
+.o-layout--guttered {
+  justify-content: space-between;
+}
+
+.o-layout--start {
+  align-items: flex-start;
+}
+
+.o-layout--center {
+  align-items: center;
+}
+
+.o-layout--l--2 {
+  @include bp(large) {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  > .o-layout__item {
+    @include bp(large) {
+      flex: 0 0 50%;
+      width: 50%;
+      padding: 12px;
+    }
+  }
+}

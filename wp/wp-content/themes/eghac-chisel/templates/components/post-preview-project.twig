@@ -1,0 +1,27 @@
+{% set single_news = TimberPost(single_news) %}
+{% set link = single_news.meta('project_cta') %}
+<div class="animate fade-in move-up c-post-preview__wrapper c-post__type--{{ post.type }}">
+  <div class="c-post-preview">
+    <a href="{{ link ? link.url : single_news.link }}" target="{{ link ? link.target : '_self' }}" class="c-post-preview__thumb-wrapper">
+      <span class="o-radius c-post-preview__thumb">
+        {{ fn( 'get_the_post_thumbnail', single_news.ID, 'large-thumbnail' ) }}
+      </span>
+    </a>
+    <div class="c-post-preview__content">
+      <h3><a href="{{ link ? link.url : single_news.link }}" target="{{ link ? link.target : '_self' }}" class="c-post-preview__title">{{ single_news.title }}</a></h3>
+      {% if single_news.meta('project_value_chain') %}
+        <p class="c-post-preview__meta">Value chain <strong>{{ single_news.meta('project_value_chain') }}</strong></p>
+      {% endif %}
+      {% if single_news.meta('project_location') %}
+        <p class="c-post-preview__meta">Region <strong>{{ single_news.meta('project_location') }}</strong></p>
+      {% endif %}
+      <a href="{{ link ? link.url : single_news.link }}" target="{{ link ? link.target : '_self' }}" class="c-post-preview__preview">{{ single_news.preview.length(20).read_more('') }}</a>
+    </div>
+    <div class="c-post-preview__link-wrapper">
+      <a href="{{ link ? link.url : single_news.link }}" target="{{ link ? link.target : '_self' }}" class="c-post-preview__link">
+        <span>Read more</span>
+        <i class="icon-arrow-right"><span class="path1"></span><span class="path2"></span></i>
+      </a>
+    </div>
+  </div>
+</div>
